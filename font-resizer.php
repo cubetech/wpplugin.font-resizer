@@ -1,12 +1,12 @@
 <?php
-    /* 
-    Plugin Name: Font Resizer
-    Plugin URI: http://www.cubetech.ch/products/font-resizer
-    Description: Font Resizer with jQuery and Cookies
-    Author: cubetech.ch
-    Version: 1.1.8
-    Author URI: http://www.cubetech.ch/
-    */
+/* 
+Plugin Name: Font Resizer
+Plugin URI: http://www.cubetech.ch/products/font-resizer
+Description: Font Resizer with jQuery and Cookies
+Author: cubetech.ch
+Version: 1.1.8
+Author URI: http://www.cubetech.ch/
+*/
 
     # Add the options/actions to WordPress (if they doesn't exist)
     
