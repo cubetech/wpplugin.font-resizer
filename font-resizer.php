@@ -4,7 +4,7 @@ Plugin Name: Font Resizer
 Plugin URI: http://www.cubetech.ch/products/font-resizer
 Description: Font Resizer with jQuery and Cookies
 Author: cubetech.ch
-Version: 1.2.1
+Version: 1.2.2
 Author URI: http://www.cubetech.ch/
 */
 
