@@ -32,13 +32,16 @@ Go to the admin page of the plugin and select your option. If you are not famili
 
 ### How can i use the plugin without the widget?
 
-Use this snippet of PHP code (in your theme or somewhere): <?php if(function_exists('fontResizer_place')) { fontResizer_place(); } ?>
+Use this snippet of PHP code (in your theme or somewhere):
+
+```<?php if(function_exists('fontResizer_place')) { fontResizer_place(); } ?>```
 
 ### How can i change the color of the A's?
 
 With CSS in your theme.
 Use something like:
-li.fontResizer > a { color: blue; }
+
+```li.fontResizer > a { color: blue; }```
 
 ### How to contribute?
 
@@ -126,4 +129,5 @@ Not yet, no. But feel free to contact us if you have a question! info@cubetech.c
 ## About us
 
 cubetech – we create your DIGITAL EXPERIENCE with WordPress
+
 Our contact address: info@cubetech.ch
