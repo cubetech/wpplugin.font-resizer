@@ -26,7 +26,9 @@ jQuery.fn.fontresizermanager = function () {
 	jQuery('.fontResizer_minus').css("cursor","pointer");
 	jQuery('.fontResizer_reset').css("cursor","pointer");
 
-	jQuery('.fontResizer_add').click(function() {
+	// Increase font size
+	jQuery('.fontResizer_add').click(function(event) {
+		event.preventDefault();
 		var newFontSize = parseFloat(jQuery(fontResizer_element+"").css("font-size"));
 		newFontSize=newFontSize+parseFloat(fontResizer_resizeSteps);
 		if( newFontSize <= fontResizer_maxFontsize || fontResizer_maxFontsize == 0 || fontResizer_maxFontsize == '' ) {
@@ -35,16 +37,29 @@ jQuery.fn.fontresizermanager = function () {
 		}
 	});
 
-	jQuery('.fontResizer_minus').click(function() {
+	// Decrease font size
+	jQuery('.fontResizer_minus').click(function(event) {
+		event.preventDefault();
 		var newFontSize = parseFloat(jQuery(fontResizer_element+"").css("font-size"))
 		newFontSize=newFontSize-fontResizer_resizeSteps;
 		jQuery(""+fontResizer_element+"").css("font-size",newFontSize+"px");			 
 		jQuery.cookie('fontSize', newFontSize, {expires: parseInt(fontResizer_cookieTime), path: '/'});
 	});
 
-	jQuery('.fontResizer_reset').click(function() {
+	// Reset font size
+	jQuery('.fontResizer_reset').click(function(event) {
+		event.preventDefault();
 		jQuery(""+fontResizer_element+"").css("font-size",startFontSize);			 
 		jQuery.cookie('fontSize', startFontSize, {expires: parseInt(fontResizer_cookieTime), path: '/'});
+	});
+
+	// Accessibility stuff
+	jQuery('.fontResizer_minus, .fontResizer_reset, .fontResizer_add').keypress(function (e) {
+	var key = e.which;
+		if(key == 13) {
+			$(this).click();
+			return false;  
+		}
 	});
 
 }

@@ -3,8 +3,8 @@ Contributors: cubetech, chrigu99
 Donate link: https://www.cubetech.ch
 Tags: font, size, increase, decrease, resizer, bigger, smaller, jquery, cookie, fonts, resize, change, wordpress, cubetech, webdesign, hosting, billing, widget, plugin, sidebar
 Requires at least: 2.7
-Tested up to: 4.4
-Stable tag: 1.3.0
+Tested up to: 4.5
+Stable tag: 1.3.1
 License: GPLv2
 
 font-resizer allows the visitors of your website to change the content font size
@@ -51,6 +51,9 @@ https://github.com/cubetech/wordpress.font-resizer
 Not yet, no. But feel free to contact us if you have a question! info@cubetech.ch
 
 == Changelog ==
+
+= 1.3.1 =
+* Accessibility improvements (tab select and enter key press)
 
 = 1.3.0 =
 * New function: limit font size, add to option page

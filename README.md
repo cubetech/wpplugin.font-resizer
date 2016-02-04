@@ -55,6 +55,10 @@ Not yet, no. But feel free to contact us if you have a question! info@cubetech.c
 
 ## Changelog
 
+### 1.3.1
+
+* Accessibility improvements (tab select and enter key press)
+
 ### 1.3.0
 
 * New function: limit font size, add to option page
