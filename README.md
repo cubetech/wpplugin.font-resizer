@@ -1,6 +1,6 @@
 # font-resizer
 
-![WordPress tested](https://img.shields.io/wordpress/v/font-resizer.svg) ![Plugin downloads](https://img.shields.io/wordpress/plugin/dt/font-resizer.svg) ![Plugin ratings](https://img.shields.io/wordpress/plugin/r/font-resizer.svg)
+[![WordPress tested](https://img.shields.io/wordpress/v/font-resizer.svg)](https://github.com/cubetech/wordpress.font-resizer) ![Plugin downloads](https://img.shields.io/wordpress/plugin/dt/font-resizer.svg) ![Plugin ratings](https://img.shields.io/wordpress/plugin/r/font-resizer.svg)
 
 font-resizer allows the visitors of your website to change the content font size
 
