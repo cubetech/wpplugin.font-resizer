@@ -1,10 +1,10 @@
 === font-resizer ===
 Contributors: cubetech, chrigu99
-Donate link: https://www.cubetech.ch
+Donate link: http://www.cubetech.ch
 Tags: font, size, increase, decrease, resizer, bigger, smaller, jquery, cookie, fonts, resize, change, wordpress, cubetech, webdesign, hosting, billing, widget, plugin, sidebar
 Requires at least: 2.7
-Tested up to: 4.5
-Stable tag: 1.3.2
+Tested up to: 3.5
+Stable tag: 1.2.3
 License: GPLv2
 
 font-resizer allows the visitors of your website to change the content font size
@@ -20,7 +20,7 @@ Which content is going resized, the resize steps and other options you can set o
 1. Upload the directory `font-resizer` to the `/wp-content/plugins/` directory or install the plugin directly with the 'Install' function in the 'Plugins' menu in WordPress
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Add the sidebar widget through the 'Design' menu in WordPress
-1. If you would not use the widget, you can use the tag `<?php if(function_exists('fontResizer_place')) { fontResizer_place(); } ?>` somewhere
+1. If you would not use the widget, you can use the tag `&lt;?php if(function_exists('fontResizer_place')) { fontResizer_place(); } ?&gt;` somewhere
 1. Define which content should be resized on the 'font-resizer' admin page (optional). If you are not familiar with html and css, select the body option (default). This would resize each content of your page.
 
 == Screenshots ==
@@ -35,33 +35,17 @@ Which content is going resized, the resize steps and other options you can set o
 Go to the admin page of the plugin and select your option. If you are not familiar with html and css, select the body option (default). This would resize each content of your page.
 
 = How can i use the plugin without the widget? =
-Use this snippet of PHP code (in your theme or somewhere): <?php if(function_exists('fontResizer_place')) { fontResizer_place(); } ?>
+Use this snippet of PHP code (in your theme or somewhere): &lt;?php if(function_exists('fontResizer_place')) { fontResizer_place(); } ?&gt;
 
 = How can i change the color of the A's? =
 With CSS in your theme.
 Use something like:
 li.fontResizer > a { color: blue; }
 
-= How to contribute? =
-If you have an idea or a pull request, contribute here:
-
-https://github.com/cubetech/wordpress.font-resizer
-
 = Are there more FAQ? =
 Not yet, no. But feel free to contact us if you have a question! info@cubetech.ch
 
 == Changelog ==
-
-= 1.3.2 =
-* HTML Bugfix
-
-= 1.3.1 =
-* Accessibility improvements (tab select and enter key press)
-
-= 1.3.0 =
-* New function: limit font size, add to option page
-* Bug: replaced old path declaration
-* Testing: WP 4.4 and actual Bootstrap theme
 
 = 1.2.3 =
 * Widget bug fix
@@ -129,6 +113,5 @@ Not yet, no. But feel free to contact us if you have a question! info@cubetech.c
 
 == About us ==
 
-cubetech – we create your DIGITAL EXPERIENCE with WordPress
+cubetech.ch is a modern, swiss-based web-maintainer which provides high quality services for you.
 Our contact address: info@cubetech.ch
-
