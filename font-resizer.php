@@ -85,7 +85,7 @@ Author URI: http://www.cubetech.ch/
     # Sort the dependencies
 
     function fontResizer_sortDependencys(){
-    	$font_resizer_path = WP_PLUGIN_URL.'/font-resizer/js/';
+    	$font_resizer_path = WP_PLUGIN_URL.'/wpplugin.font-resizer/js/';
         wp_register_script('fontResizer', $font_resizer_path.'jquery.fontsize.js');
         wp_register_script('fontResizerCookie', $font_resizer_path.'jquery.cookie.js');
         wp_register_script('fontResizerPlugin', $font_resizer_path.'main.js');
