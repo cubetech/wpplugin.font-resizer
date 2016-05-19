@@ -6,6 +6,7 @@ jQuery.fn.fontresizermanager = function () {
     var fontResizer_resizeSteps = jQuery('#fontResizer_resizeSteps').val();
     var fontResizer_cookieTime = jQuery('#fontResizer_cookieTime').val();
     var fontResizer_maxFontsize = jQuery('#fontResizer_maxFontsize').val();
+    var fontResizer_minFontsize = jQuery('#fontResizer_minFontsize').val();
     var fontResizer_element = fontResizer_value;
  
 	if(fontResizer_value == "innerbody") {
@@ -21,6 +22,11 @@ jQuery.fn.fontresizermanager = function () {
 	if(savedSize > 4) {
 		jQuery(fontResizer_element).css("font-size", savedSize + "px");
 	}
+	
+	var savedLineHeight = jQuery.cookie('line-height');
+	if(savedLineHeight > 7){
+		jQuery(fontResizer_element).css('line-height', savedLineHeight + "px");
+	}
 
 	jQuery('.fontResizer_add').css("cursor","pointer");
 	jQuery('.fontResizer_minus').css("cursor","pointer");
@@ -34,6 +40,9 @@ jQuery.fn.fontresizermanager = function () {
 		if( newFontSize <= fontResizer_maxFontsize || fontResizer_maxFontsize == 0 || fontResizer_maxFontsize == '' ) {
 			jQuery(fontResizer_element+"").css("font-size",newFontSize+"px");
 			jQuery.cookie('fontSize', newFontSize, {expires: parseInt(fontResizer_cookieTime), path: '/'});
+			
+			jQuery(""+fontResizer_element+"").css("line-height", "normal");
+			jQuery.cookie('line-height', "normal", {expires: parseInt(fontResizer_cookieTime), path: '/'});
 		}
 	});
 
@@ -42,15 +51,22 @@ jQuery.fn.fontresizermanager = function () {
 		event.preventDefault();
 		var newFontSize = parseFloat(jQuery(fontResizer_element+"").css("font-size"))
 		newFontSize=newFontSize-fontResizer_resizeSteps;
-		jQuery(""+fontResizer_element+"").css("font-size",newFontSize+"px");			 
-		jQuery.cookie('fontSize', newFontSize, {expires: parseInt(fontResizer_cookieTime), path: '/'});
+		if( newFontSize >= fontResizer_minFontsize || fontResizer_minFontsize == 0 || fontResizer_minFontsize == '' ) {
+			jQuery(""+fontResizer_element+"").css("font-size",newFontSize+"px");			 
+			jQuery.cookie('fontSize', newFontSize, {expires: parseInt(fontResizer_cookieTime), path: '/'});
+			
+			jQuery(""+fontResizer_element+"").css("line-height", "normal");
+			jQuery.cookie('line-height', "normal", {expires: parseInt(fontResizer_cookieTime), path: '/'});
+		}
 	});
 
 	// Reset font size
 	jQuery('.fontResizer_reset').click(function(event) {
 		event.preventDefault();
 		jQuery(""+fontResizer_element+"").css("font-size",startFontSize);			 
+		
 		jQuery.cookie('fontSize', startFontSize, {expires: parseInt(fontResizer_cookieTime), path: '/'});
+		jQuery(""+fontResizer_element+"").css("line-height", "normal");	
 	});
 
 	// Accessibility stuff

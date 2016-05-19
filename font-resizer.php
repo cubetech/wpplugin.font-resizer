@@ -7,9 +7,7 @@ Author: cubetech.ch
 Version: 1.3.2
 Author URI: http://www.cubetech.ch/
 */
-
     # Add the options/actions to WordPress (if they doesn't exist)
-
     add_action('admin_menu', 'fontResizer_addAdminPage');
     add_option('fontResizer', 'body', '', 'yes');
     add_option('fontResizer_ownid', '', '', 'yes');
@@ -17,15 +15,13 @@ Author URI: http://www.cubetech.ch/
     add_option('fontResizer_resizeSteps', '1.6', '', 'no');
     add_option('fontResizer_cookieTime', '31', '', 'no');
     add_option('fontResizer_maxFontsize', '', '', 'yes');
+    add_option('fontResizer_minFontsize', '', '', 'yes');
 
     # Register an administration page
-
     function fontResizer_addAdminPage() {
         add_options_page('font-resizer Options', 'font-resizer', 'edit_pages', 'font-resizer', 'fontResizer_aMenu');
     }
-
     # Generates the administration menu
-
     function fontResizer_aMenu() {
 	?>
 	<div class="wrap">
@@ -66,9 +62,18 @@ Author URI: http://www.cubetech.ch/
 		<tr valig="top">
 		    <th scope="row">Font Size</th>
 		    <td>
-		        <label for="cookieTime">
+		        <label for="fontResizer_maxFontsize">
 		            <input type="text" name="fontResizer_maxFontsize" value="<?php echo get_option('fontResizer_maxFontsize'); ?>" style="width: 3em"><b>px</b> 
 		            <br /><?php _e('Set the maximum font size (default: no limit, 0 or empty means no limit)', 'font-resizer'); ?>
+		        </label>
+		    </td>
+		</tr>
+		<tr valig="top">
+		    <th scope="row">Font Size</th>
+		    <td>
+		        <label for="fontResizer_minFontsize">
+		            <input type="text" name="fontResizer_minFontsize" value="<?php echo get_option('fontResizer_minFontsize'); ?>" style="width: 3em"><b>px</b> 
+		            <br /><?php _e('Set the minimum font size (default: no limit, 0 or empty means no limit)', 'font-resizer'); ?>
 		        </label>
 		    </td>
 		</tr>
@@ -83,17 +88,18 @@ Author URI: http://www.cubetech.ch/
 		</tr>
 	    </table>
 	    <input type="hidden" name="action" value="update" />
-	    <input type="hidden" name="page_options" value="fontResizer,fontResizer_ownid,fontResizer_ownelement,fontResizer_resizeSteps,fontResizer_cookieTime,fontResizer_maxFontsize" />
+	    <input type="hidden" name="page_options" value="fontResizer,fontResizer_ownid,fontResizer_ownelement,fontResizer_resizeSteps,fontResizer_cookieTime,fontResizer_maxFontsize,fontResizer_minFontsize" />
 	    <p class="submit">
 	    	<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 	    </p>
 	    </form>
 	</div>
 	<?php	
-    }
+    } 
+    
+
     
     # Sort the dependencies
-
     function fontResizer_sortDependencys(){
     	$font_resizer_path = plugins_url( '/js/', __FILE__ );
         wp_register_script('fontResizer', $font_resizer_path.'jquery.fontsize.js');
@@ -106,45 +112,39 @@ Author URI: http://www.cubetech.ch/
     }
     
     # Generate the font-resizer text
-
     function fontResizer_place(){
-		echo '<ul><li class="fontResizer" style="text-align: center; font-weight: bold;">';
-		echo '<a class="fontResizer_minus" href="#" title="' . __('Decrease font size', 'font-resizer') . '" style="font-size: 0.7em;">A</a> ';
-		echo '<a class="fontResizer_reset" href="#" title="' . __('Reset font size', 'font-resizer') . '">A</a> ';
-		echo '<a class="fontResizer_add" href="#" title="' . __('Increase font size', 'font-resizer') . '" style="font-size: 1.2em;">A</a> ';
+		echo '<ul class="fontResizer-container"><li class="fontResizer" style="text-align: center; font-weight: bold;">';
+		echo '<a class="fontResizer_minus" href="#" title="' . __('Schriftgrösse verkleinern', 'font-resizer') . '" style="font-size: 0.7em;">'; include('includes/minus_icon.svg'); echo '</a>';
+		echo '<a class="fontResizer_reset" href="#" title="' . __('Schriftgrösse zurücksetzen', 'font-resizer') . '" style="font-size: 1em;">'; include('includes/reset-icon.svg'); echo '</a>';
+ 		echo '<a class="fontResizer_add" href="#" title="' . __('Schriftgrösse vergrössern', 'font-resizer') . '" style="font-size: 1.2em;">'; include('includes/plus-icon.svg'); echo '</a>';
 		echo '<input type="hidden" id="fontResizer_value" value="'.get_option('fontResizer').'" />';
 		echo '<input type="hidden" id="fontResizer_ownid" value="'.get_option('fontResizer_ownid').'" />';
 		echo '<input type="hidden" id="fontResizer_ownelement" value="'.get_option('fontResizer_ownelement').'" />';
 		echo '<input type="hidden" id="fontResizer_resizeSteps" value="'.get_option('fontResizer_resizeSteps').'" />';
 		echo '<input type="hidden" id="fontResizer_cookieTime" value="'.get_option('fontResizer_cookieTime').'" />';
 		echo '<input type="hidden" id="fontResizer_maxFontsize" value="'.get_option('fontResizer_maxFontsize').'" />';
+		echo '<input type="hidden" id="fontResizer_minFontsize" value="'.get_option('fontResizer_minFontsize').'" />';
 		echo '</li></ul>';
     }
 	
 	# Creating the widget
-
     function fontresizer_widget($args) {
         extract($args);
         fontResizer_place();
     }
-
     add_action('init', 'fontResizer_sortDependencys');
 	
 	# Register sidebar function
 	
     wp_register_sidebar_widget('fontresizer_widget', 'Font Resizer','fontresizer_widget');
-
     # Register uninstall function
-
     register_uninstall_hook(__FILE__, 'fontResizer_uninstaller');
     
     # This function deletes the options when you uninstall the plugin
-
     function fontResizer_uninstaller() {
     	delete_option('fontResizer');
     	delete_option('fontResizer_ownid');
     	delete_option('fontResizer_ownelement');
     	delete_option('fontResizer_resizeSteps');
     }
-
 ?>
