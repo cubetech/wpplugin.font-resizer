@@ -30,6 +30,10 @@ Which content is going resized, the resize steps and other options you can set o
 
 Go to the admin page of the plugin and select your option. If you are not familiar with html and css, select the body option (default). This would resize each content of your page.
 
+### My fonts doesn't resize or only some lines are resizing. How can i fix?
+
+The problem is that many themes use fixed font sizes (px) instead of relative sizes (em, rem, vm, vh, %, ...). If you change this, it works.
+
 ### How can i use the plugin without the widget?
 
 Use this snippet of PHP code (in your theme or somewhere):
@@ -41,13 +45,21 @@ Use this snippet of PHP code (in your theme or somewhere):
 With CSS in your theme.
 Use something like:
 
-```li.fontResizer > a { color: blue; }```
+```ul.ct-font-resizer li > a { color: blue; }```
+
+### Which styling (CSS) classes are available?
+
+UL : ct-font-resizer
+
+LI : ct-font-resizer-element
+
+A  : ct-font-resizer-plus, ct-font-resizer-reset, ct-font-resizer-minus
 
 ### How to contribute?
 
 If you have an idea or a pull request, contribute here:
 
-https://github.com/cubetech/wordpress.font-resizer
+https://github.com/cubetech/wpplugin.font-resizer
 
 ### Are there more FAQ?
 
