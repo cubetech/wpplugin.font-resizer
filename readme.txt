@@ -3,8 +3,8 @@ Contributors: cubetech, chrigu99
 Donate link: https://www.cubetech.ch
 Tags: font, size, increase, decrease, resizer, bigger, smaller, jquery, cookie, fonts, resize, change, wordpress, cubetech, webdesign, hosting, billing, widget, plugin, sidebar
 Requires at least: 2.7
-Tested up to: 4.5
-Stable tag: 1.3.2
+Tested up to: 4.8
+Stable tag: 1.3.3
 License: GPLv2
 
 font-resizer allows the visitors of your website to change the content font size
@@ -34,18 +34,26 @@ Which content is going resized, the resize steps and other options you can set o
 = How can i activate the function of the plugin? =
 Go to the admin page of the plugin and select your option. If you are not familiar with html and css, select the body option (default). This would resize each content of your page.
 
+= My fonts doesn't resize or only some lines are resizing. How can i fix? =
+The problem is that many themes use fixed font sizes (px) instead of relative sizes (em, rem, vm, vh, %, ...). If you change this, it works.
+
 = How can i use the plugin without the widget? =
 Use this snippet of PHP code (in your theme or somewhere): <?php if(function_exists('fontResizer_place')) { fontResizer_place(); } ?>
 
 = How can i change the color of the A's? =
 With CSS in your theme.
 Use something like:
-li.fontResizer > a { color: blue; }
+ul.ct-font-resizer li > a { color: blue; }
+
+= Which styling (CSS) classes are available? =
+UL : ct-font-resizer
+LI : ct-font-resizer-element
+A  : ct-font-resizer-plus, ct-font-resizer-reset, ct-font-resizer-minus
 
 = How to contribute? =
 If you have an idea or a pull request, contribute here:
 
-https://github.com/cubetech/wordpress.font-resizer
+https://github.com/cubetech/wpplugin.font-resizer
 
 = Are there more FAQ? =
 Not yet, no. But feel free to contact us if you have a question! info@cubetech.ch

@@ -4,7 +4,7 @@ Plugin Name: Font Resizer
 Plugin URI: http://www.cubetech.ch/products/font-resizer
 Description: Font Resizer with jQuery and Cookies
 Author: cubetech.ch
-Version: 1.3.2
+Version: 1.3.3
 Author URI: http://www.cubetech.ch/
 */
 
@@ -108,10 +108,10 @@ Author URI: http://www.cubetech.ch/
     # Generate the font-resizer text
 
     function fontResizer_place(){
-		echo '<ul><li class="fontResizer" style="text-align: center; font-weight: bold;">';
-		echo '<a class="fontResizer_minus" href="#" title="' . __('Decrease font size', 'font-resizer') . '" style="font-size: 0.7em;">A</a> ';
-		echo '<a class="fontResizer_reset" href="#" title="' . __('Reset font size', 'font-resizer') . '">A</a> ';
-		echo '<a class="fontResizer_add" href="#" title="' . __('Increase font size', 'font-resizer') . '" style="font-size: 1.2em;">A</a> ';
+		echo '<ul class="ct-font-resizer"><li class="fontResizer ct-font-resizer-element" style="text-align: center; font-weight: bold;">';
+		echo '<a class="fontResizer_minus ct-font-resizer-minus" href="#" title="' . __('Decrease font size', 'font-resizer') . '" style="font-size: 0.7em;">A</a> ';
+		echo '<a class="fontResizer_reset ct-font-resizer-reset" href="#" title="' . __('Reset font size', 'font-resizer') . '">A</a> ';
+		echo '<a class="fontResizer_add ct-font-resizer-plus" href="#" title="' . __('Increase font size', 'font-resizer') . '" style="font-size: 1.2em;">A</a> ';
 		echo '<input type="hidden" id="fontResizer_value" value="'.get_option('fontResizer').'" />';
 		echo '<input type="hidden" id="fontResizer_ownid" value="'.get_option('fontResizer_ownid').'" />';
 		echo '<input type="hidden" id="fontResizer_ownelement" value="'.get_option('fontResizer_ownelement').'" />';
