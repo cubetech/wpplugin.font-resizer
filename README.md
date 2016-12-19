@@ -67,6 +67,10 @@ Not yet, no. But feel free to contact us if you have a question! info@cubetech.c
 
 ## Changelog
 
+### 1.3.4
+
+* Added new setting for minimum font size
+
 ### 1.3.3
 
 * Added new CSS classes to elements (all with ct-font-resizer prefix)

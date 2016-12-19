@@ -17,6 +17,7 @@ Author URI: http://www.cubetech.ch/
     add_option('fontResizer_resizeSteps', '1.6', '', 'no');
     add_option('fontResizer_cookieTime', '31', '', 'no');
     add_option('fontResizer_maxFontsize', '', '', 'yes');
+    add_option('fontResizer_minFontsize', '', '', 'yes');
 
     # Register an administration page
 
@@ -64,11 +65,20 @@ Author URI: http://www.cubetech.ch/
 		    </td>
 		</tr>
 		<tr valig="top">
-		    <th scope="row">Font Size</th>
+		    <th scope="row">Font Size min/max settings</th>
 		    <td>
 		        <label for="cookieTime">
 		            <input type="text" name="fontResizer_maxFontsize" value="<?php echo get_option('fontResizer_maxFontsize'); ?>" style="width: 3em"><b>px</b> 
 		            <br /><?php _e('Set the maximum font size (default: no limit, 0 or empty means no limit)', 'font-resizer'); ?>
+		        </label>
+		    </td>
+		</tr>
+		<tr valig="top">
+		    <th scope="row"></th>
+		    <td>
+		        <label for="cookieTime">
+		            <input type="text" name="fontResizer_minFontsize" value="<?php echo get_option('fontResizer_minFontsize'); ?>" style="width: 3em"><b>px</b> 
+		            <br /><?php _e('Set the minimum font size (default: no limit, 0 or empty means no limit)', 'font-resizer'); ?>
 		        </label>
 		    </td>
 		</tr>
@@ -83,7 +93,7 @@ Author URI: http://www.cubetech.ch/
 		</tr>
 	    </table>
 	    <input type="hidden" name="action" value="update" />
-	    <input type="hidden" name="page_options" value="fontResizer,fontResizer_ownid,fontResizer_ownelement,fontResizer_resizeSteps,fontResizer_cookieTime,fontResizer_maxFontsize" />
+	    <input type="hidden" name="page_options" value="fontResizer,fontResizer_ownid,fontResizer_ownelement,fontResizer_resizeSteps,fontResizer_cookieTime,fontResizer_maxFontsize,fontResizer_minFontsize" />
 	    <p class="submit">
 	    	<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
 	    </p>
@@ -118,6 +128,7 @@ Author URI: http://www.cubetech.ch/
 		echo '<input type="hidden" id="fontResizer_resizeSteps" value="'.get_option('fontResizer_resizeSteps').'" />';
 		echo '<input type="hidden" id="fontResizer_cookieTime" value="'.get_option('fontResizer_cookieTime').'" />';
 		echo '<input type="hidden" id="fontResizer_maxFontsize" value="'.get_option('fontResizer_maxFontsize').'" />';
+		echo '<input type="hidden" id="fontResizer_minFontsize" value="'.get_option('fontResizer_minFontsize').'" />';
 		echo '</li></ul>';
     }
 	

@@ -6,6 +6,7 @@ jQuery.fn.fontresizermanager = function () {
     var fontResizer_resizeSteps = jQuery('#fontResizer_resizeSteps').val();
     var fontResizer_cookieTime = jQuery('#fontResizer_cookieTime').val();
     var fontResizer_maxFontsize = jQuery('#fontResizer_maxFontsize').val();
+    var fontResizer_minFontsize = jQuery('#fontResizer_minFontsize').val();
     var fontResizer_element = fontResizer_value;
  
 	if(fontResizer_value == "innerbody") {
@@ -31,7 +32,7 @@ jQuery.fn.fontresizermanager = function () {
 		event.preventDefault();
 		var newFontSize = parseFloat(jQuery(fontResizer_element+"").css("font-size"));
 		newFontSize=newFontSize+parseFloat(fontResizer_resizeSteps);
-		if( newFontSize <= fontResizer_maxFontsize || fontResizer_maxFontsize == 0 || fontResizer_maxFontsize == '' ) {
+		if( ( newFontSize <= fontResizer_maxFontsize || fontResizer_maxFontsize == 0 || fontResizer_maxFontsize == '' ) && ( newFontSize >= fontResizer_minFontsize || fontResizer_minFontsize == 0 || fontResizer_minFontsize == '' ) ) {
 			jQuery(fontResizer_element+"").css("font-size",newFontSize+"px");
 			jQuery.cookie('fontSize', newFontSize, {expires: parseInt(fontResizer_cookieTime), path: '/'});
 		}
