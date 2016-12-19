@@ -67,6 +67,11 @@ Not yet, no. But feel free to contact us if you have a question! info@cubetech.c
 
 ## Changelog
 
+### 1.3.5
+
+* Bugfix for minimum font size
+* New screenshot of settings panel
+
 ### 1.3.4
 
 * Added new setting for minimum font size
